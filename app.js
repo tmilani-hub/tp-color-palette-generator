@@ -40,11 +40,13 @@ $btn_add.addEventListener("click", () => {
 	$palette_container.appendChild(new_color);
 });
 
+const $hex_values = document.querySelectorAll(".hex-value");
 for (let i = 0; i < $copys.length; i++) {
+	const hex = $hex_values[i];
 	const $copy = $copys[i];
 
 	$copy.addEventListener("click", () => {
-		copy("ça marche!!!!!!!!!!!!");
+		copy(hex.textContent);
 	});
 }
 
@@ -81,6 +83,10 @@ function create_Box_Color() {
 	box_color.appendChild(box_info);
 
 	generatecolor(color, info);
+
+	crlt_c.addEventListener("click", () => {
+		copy(info.textContent);
+	});
 
 	return box_color;
 }
